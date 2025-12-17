@@ -127,6 +127,29 @@ void graph_visualize(Graph* graph);
 void graph_free(Graph* graph);
 
 // ============================================================================
+// HASHMAP
+// ============================================================================
+typedef struct HashEntry {
+    char* key;
+    int value;
+    struct HashEntry* next;
+} HashEntry;
+
+typedef struct {
+    HashEntry** buckets;
+    int capacity;
+    int size;
+} HashMap;
+
+HashMap* hashmap_create(int capacity);
+void hashmap_put(HashMap* map, const char* key, int value);
+int hashmap_get(HashMap* map, const char* key, int* found);
+int hashmap_remove(HashMap* map, const char* key);
+int hashmap_contains(HashMap* map, const char* key);
+void hashmap_visualize(HashMap* map);
+void hashmap_free(HashMap* map);
+
+// ============================================================================
 // SORTING ALGORITHMS
 // ============================================================================
 void visualize_array(int arr[], int size, int highlight1, int highlight2);

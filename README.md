@@ -19,7 +19,7 @@ make
 
 Or compile manually:
 ```bash
-gcc -Wall -std=c11 -o dsa_demo main.c linked_list.c stack.c queue.c binary_tree.c graph.c sorting.c searching.c utils.c
+gcc -Wall -std=c11 -o dsa_demo src/*.c
 ```
 
 ## Usage

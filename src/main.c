@@ -277,8 +277,8 @@ void print_main_menu() {
     clear_screen();
     printf("\n");
     printf(CYAN "╔══════════════════════════════════════════════════════════════╗\n" RESET);
-    printf(CYAN "║" YELLOW "          DATA STRUCTURES & ALGORITHMS VISUALIZER           " CYAN "║\n" RESET);
-    printf(CYAN "║" YELLOW "                    Learning Library in C                    " CYAN "║\n" RESET);
+    printf(CYAN "║" YELLOW "          DATA STRUCTURES & ALGORITHMS VISUALIZER             " CYAN "║\n" RESET);
+    printf(CYAN "║" YELLOW "                    Learning Library in C                     " CYAN "║\n" RESET);
     printf(CYAN "╚══════════════════════════════════════════════════════════════╝\n" RESET);
     printf("\n");
     printf(GREEN "DATA STRUCTURES:\n" RESET);
