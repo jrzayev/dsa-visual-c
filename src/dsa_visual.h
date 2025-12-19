@@ -150,6 +150,29 @@ void hashmap_visualize(HashMap* map);
 void hashmap_free(HashMap* map);
 
 // ============================================================================
+// HASHSET
+// ============================================================================
+typedef struct SetEntry {
+    int value;
+    struct SetEntry* next;
+} SetEntry;
+
+typedef struct {
+    SetEntry** buckets;
+    int capacity;
+    int size;
+} HashSet;
+
+HashSet* hashset_create(int capacity);
+int hashset_add(HashSet* set, int value);
+int hashset_remove(HashSet* set, int value);
+int hashset_contains(HashSet* set, int value);
+int hashset_contains_silent(HashSet* set, int value);
+HashSet* hashset_union(HashSet* set1, HashSet* set2);
+HashSet* hashset_intersection(HashSet* set1, HashSet* set2);
+void hashset_visualize(HashSet* set);
+void hashset_free(HashSet* set);
+// ============================================================================
 // SORTING ALGORITHMS
 // ============================================================================
 void visualize_array(int arr[], int size, int highlight1, int highlight2);
