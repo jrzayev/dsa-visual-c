@@ -13,6 +13,7 @@ SOURCES = $(SRC_DIR)/main.c \
           $(SRC_DIR)/graph.c \
           $(SRC_DIR)/hashmap.c \
           $(SRC_DIR)/hashset.c \
+          $(SRC_DIR)/array.c \
           $(SRC_DIR)/sorting.c \
           $(SRC_DIR)/searching.c \
           $(SRC_DIR)/utils.c

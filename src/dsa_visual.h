@@ -172,6 +172,30 @@ HashSet* hashset_union(HashSet* set1, HashSet* set2);
 HashSet* hashset_intersection(HashSet* set1, HashSet* set2);
 void hashset_visualize(HashSet* set);
 void hashset_free(HashSet* set);
+
+// ============================================================================
+// DYNAMIC ARRAY
+// ============================================================================
+typedef struct {
+    int* data;
+    int size;
+    int capacity;
+} DynamicArray;
+
+DynamicArray* array_create(int initial_capacity);
+void array_push_back(DynamicArray* arr, int value);
+void array_push_front(DynamicArray* arr, int value);
+void array_insert_at(DynamicArray* arr, int index, int value);
+int array_pop_back(DynamicArray* arr);
+int array_pop_front(DynamicArray* arr);
+int array_remove_at(DynamicArray* arr, int index);
+int array_get(DynamicArray* arr, int index);
+void array_set(DynamicArray* arr, int index, int value);
+int array_search(DynamicArray* arr, int value);
+void array_reverse(DynamicArray* arr);
+void array_visualize(DynamicArray* arr);
+void array_free(DynamicArray* arr);
+
 // ============================================================================
 // SORTING ALGORITHMS
 // ============================================================================
