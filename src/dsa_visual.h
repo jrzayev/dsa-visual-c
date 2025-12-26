@@ -197,6 +197,32 @@ void array_visualize(DynamicArray* arr);
 void array_free(DynamicArray* arr);
 
 // ============================================================================
+// STRING BUILDER
+// ============================================================================
+typedef struct {
+    char* data;
+    int length;
+    int capacity;
+} StringBuilder;
+
+StringBuilder* string_create(const char* initial);
+void string_append(StringBuilder* sb, const char* str);
+void string_append_char(StringBuilder* sb, char c);
+void string_insert(StringBuilder* sb, int index, const char* str);
+void string_delete(StringBuilder* sb, int start, int end);
+char string_char_at(StringBuilder* sb, int index);
+int string_index_of(StringBuilder* sb, const char* substr);
+void string_replace(StringBuilder* sb, const char* old_str, const char* new_str);
+void string_reverse(StringBuilder* sb);
+void string_to_upper(StringBuilder* sb);
+void string_to_lower(StringBuilder* sb);
+void string_trim(StringBuilder* sb);
+StringBuilder* string_substring(StringBuilder* sb, int start, int end);
+int string_is_palindrome(StringBuilder* sb);
+void string_visualize(StringBuilder* sb);
+void string_free(StringBuilder* sb);
+
+// ============================================================================
 // SORTING ALGORITHMS
 // ============================================================================
 void visualize_array(int arr[], int size, int highlight1, int highlight2);
