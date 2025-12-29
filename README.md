@@ -4,7 +4,16 @@ A visual learning library for Data Structures and Algorithms in C with colorful 
 
 ## What's Included
 
-**Data Structures:** Linked List, Stack, Queue, Binary Tree, Graph
+**Data Structures:**
+- Linked List
+- Stack
+- Queue
+- Binary Tree
+- Graph
+- HashMap
+- HashSet
+- Dynamic Array
+- String (StringBuilder)
 
 **Sorting:** Bubble, Selection, Insertion, Quick, Merge
 

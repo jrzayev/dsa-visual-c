@@ -197,6 +197,238 @@ void demo_graph() {
     getchar();
 }
 
+void demo_hashmap() {
+    clear_screen();
+    print_header("HASHMAP DEMONSTRATION");
+
+    HashMap* map = hashmap_create(7);
+
+    printf(CYAN "Inserting key-value pairs...\n\n" RESET);
+
+    hashmap_put(map, "apple", 100);
+    usleep(800000);
+
+    hashmap_put(map, "banana", 200);
+    usleep(800000);
+
+    hashmap_put(map, "cherry", 300);
+    usleep(800000);
+
+    hashmap_put(map, "date", 400);
+    usleep(800000);
+
+    hashmap_put(map, "elderberry", 500);
+    usleep(800000);
+
+    printf("\n" CYAN "Updating existing key...\n" RESET);
+    hashmap_put(map, "apple", 150);
+    usleep(1000000);
+
+    printf("\n" CYAN "Getting values...\n" RESET);
+    int found;
+    hashmap_get(map, "banana", &found);
+    usleep(800000);
+
+    hashmap_get(map, "grape", &found);
+    usleep(800000);
+
+    printf("\n" CYAN "Removing a key...\n" RESET);
+    hashmap_remove(map, "cherry");
+    usleep(1000000);
+
+    hashmap_free(map);
+
+    printf("\n" GREEN "Press Enter to continue..." RESET);
+    getchar();
+}
+
+void demo_hashset() {
+    clear_screen();
+    print_header("HASHSET DEMONSTRATION");
+
+    HashSet* set = hashset_create(7);
+
+    printf(CYAN "Adding elements to set...\n\n" RESET);
+
+    hashset_add(set, 10);
+    usleep(800000);
+
+    hashset_add(set, 20);
+    usleep(800000);
+
+    hashset_add(set, 30);
+    usleep(800000);
+
+    hashset_add(set, 40);
+    usleep(800000);
+
+    hashset_add(set, 50);
+    usleep(800000);
+
+    printf("\n" CYAN "Adding duplicate element...\n" RESET);
+    hashset_add(set, 30);
+    usleep(1000000);
+
+    printf("\n" CYAN "Checking membership...\n" RESET);
+    hashset_contains(set, 20);
+    usleep(800000);
+
+    hashset_contains(set, 100);
+    usleep(800000);
+
+    printf("\n" CYAN "Removing element...\n" RESET);
+    hashset_remove(set, 30);
+    usleep(1000000);
+
+    printf("\n" CYAN "Set Operations Demo:\n" RESET);
+    HashSet* set2 = hashset_create(7);
+    printf("\nCreating second set with: 30, 40, 50, 60, 70\n");
+    hashset_add(set2, 30);
+    hashset_add(set2, 40);
+    hashset_add(set2, 50);
+    hashset_add(set2, 60);
+    hashset_add(set2, 70);
+
+    printf("\n" YELLOW "Set 1:" RESET);
+    hashset_visualize(set);
+    printf(YELLOW "Set 2:" RESET);
+    hashset_visualize(set2);
+
+    HashSet* intersection = hashset_intersection(set, set2);
+    printf(GREEN "Intersection:" RESET);
+    hashset_visualize(intersection);
+    usleep(1500000);
+
+    hashset_free(set);
+    hashset_free(set2);
+    hashset_free(intersection);
+
+    printf("\n" GREEN "Press Enter to continue..." RESET);
+    getchar();
+}
+
+void demo_array() {
+    clear_screen();
+    print_header("DYNAMIC ARRAY DEMONSTRATION");
+
+    DynamicArray* arr = array_create(4);
+    usleep(800000);
+
+    printf(CYAN "\nPushing elements to back...\n" RESET);
+    array_push_back(arr, 10);
+    usleep(600000);
+
+    array_push_back(arr, 20);
+    usleep(600000);
+
+    array_push_back(arr, 30);
+    usleep(600000);
+
+    array_push_back(arr, 40);
+    usleep(600000);
+
+    printf(CYAN "\nPushing more (triggers resize)...\n" RESET);
+    array_push_back(arr, 50);
+    usleep(800000);
+
+    printf(CYAN "\nPushing to front...\n" RESET);
+    array_push_front(arr, 5);
+    usleep(800000);
+
+    printf(CYAN "\nInserting at index 3...\n" RESET);
+    array_insert_at(arr, 3, 25);
+    usleep(800000);
+
+    printf(CYAN "\nAccessing elements...\n" RESET);
+    array_get(arr, 0);
+    array_get(arr, 3);
+    usleep(800000);
+
+    printf(CYAN "\nSearching for value 30...\n" RESET);
+    array_search(arr, 30);
+    usleep(1000000);
+
+    printf(CYAN "\nReversing array...\n" RESET);
+    array_reverse(arr);
+    usleep(1000000);
+
+    printf(CYAN "\nPopping elements...\n" RESET);
+    array_pop_back(arr);
+    usleep(600000);
+    array_pop_front(arr);
+    usleep(600000);
+
+    array_free(arr);
+
+    printf("\n" GREEN "Press Enter to continue..." RESET);
+    getchar();
+}
+
+void demo_string() {
+    clear_screen();
+    print_header("STRING OPERATIONS DEMONSTRATION");
+
+    printf(CYAN "Creating string...\n" RESET);
+    StringBuilder* sb = string_create("Hello");
+    string_visualize(sb);
+    usleep(800000);
+
+    printf(CYAN "\nAppending strings...\n" RESET);
+    string_append(sb, " World");
+    usleep(800000);
+
+    string_append(sb, "!");
+    usleep(800000);
+
+    printf(CYAN "\nInserting at position 5...\n" RESET);
+    string_insert(sb, 5, " Beautiful");
+    usleep(1000000);
+
+    printf(CYAN "\nGetting character at index...\n" RESET);
+    string_char_at(sb, 6);
+    usleep(800000);
+
+    printf(CYAN "\nSearching for substring...\n" RESET);
+    string_index_of(sb, "World");
+    usleep(1000000);
+
+    printf(CYAN "\nReplacing text...\n" RESET);
+    string_replace(sb, "Beautiful", "Amazing");
+    usleep(1000000);
+
+    printf(CYAN "\nConverting to uppercase...\n" RESET);
+    string_to_upper(sb);
+    usleep(1000000);
+
+    printf(CYAN "\nConverting to lowercase...\n" RESET);
+    string_to_lower(sb);
+    usleep(1000000);
+
+    string_free(sb);
+
+    printf(CYAN "\nPalindrome check...\n" RESET);
+    StringBuilder* palindrome = string_create("racecar");
+    string_is_palindrome(palindrome);
+    usleep(1000000);
+
+    StringBuilder* not_palindrome = string_create("hello");
+    string_is_palindrome(not_palindrome);
+    usleep(1000000);
+
+    string_free(palindrome);
+    string_free(not_palindrome);
+
+    printf(CYAN "\nReversing string...\n" RESET);
+    StringBuilder* reverse_demo = string_create("Algorithm");
+    string_reverse(reverse_demo);
+    usleep(1000000);
+
+    string_free(reverse_demo);
+
+    printf("\n" GREEN "Press Enter to continue..." RESET);
+    getchar();
+}
+
 void demo_sorting() {
     clear_screen();
     print_header("SORTING ALGORITHMS DEMONSTRATION");
@@ -287,10 +519,14 @@ void print_main_menu() {
     printf("  3. Queue\n");
     printf("  4. Binary Tree\n");
     printf("  5. Graph\n");
+    printf("  6. HashMap\n");
+    printf("  7. HashSet\n");
+    printf("  8. Dynamic Array\n");
+    printf("  9. String Operations\n");
     printf("\n");
     printf(GREEN "ALGORITHMS:\n" RESET);
-    printf("  6. Sorting Algorithms\n");
-    printf("  7. Searching Algorithms\n");
+    printf("  10. Sorting Algorithms\n");
+    printf("  11. Searching Algorithms\n");
     printf("\n");
     printf(RED "  0. Exit\n" RESET);
     printf("\n");
@@ -322,14 +558,26 @@ int main() {
                 demo_graph();
                 break;
             case 6:
-                demo_sorting();
+                demo_hashmap();
                 break;
             case 7:
+                demo_hashset();
+                break;
+            case 8:
+                demo_array();
+                break;
+            case 9:
+                demo_string();
+                break;
+            case 10:
+                demo_sorting();
+                break;
+            case 11:
                 demo_searching();
                 break;
             case 0:
                 clear_screen();
-                printf("\n" CYAN "Tschüss\n\n" RESET);
+                printf("\n" CYAN "Tschüss!\n\n" RESET);
                 return 0;
             default:
                 printf(RED "\nInvalid choice! Please try again.\n" RESET);
